@@ -319,7 +319,7 @@
       <li *ngFor="let item of items; let i = index">
         <fa-icon class="check-icon" [icon]="faCheck" *ngIf="item.done" (click)="checkItem(i)"></fa-icon>
         <fa-icon class="uncheck-icon" [icon]="faCircle" *ngIf="!item.done" (click)="checkItem(i)"></fa-icon>
-          {{item.description}}
+        <span [ngClass]="{'line-through': item.done}">{{item.description}}</span> 
         <fa-icon class="trash" (click)="removeItem(i)" [icon]="faTrashAlt"></fa-icon>
       </li>
     </ul>

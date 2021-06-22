@@ -70,11 +70,13 @@ ul li {
 .check-icon {
   color: rgb(84, 194, 84);
   cursor: pointer;
+  margin-right: 15px;
 }
 
 .uncheck-icon {
   color: rgb(223, 223, 223);
   cursor: pointer;
+  margin-right: 15px;
 }
 
 .error-message {
@@ -83,4 +85,8 @@ ul li {
   display: block;
   color: #FF6261;
   text-align: center;
+}
+
+.line-through {
+  text-decoration: line-through;
 }
