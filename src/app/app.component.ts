@@ -19,12 +19,18 @@ export class AppComponent {
     { description: 'play', done: false },
     { description: 'laugh', done: false },
   ];
+  errorMessage = '';
 
   addItem(description:string) {
-    this.allItems.unshift({
-      description,
-      done: false
-    });
+    if(description === '') {
+      this.errorMessage = 'Please enter your task.'
+    } else {
+      this.allItems.unshift({
+        description,
+        done: false
+      });
+      this.errorMessage = ''
+    }
   }
 
   removeItem(index:number) {

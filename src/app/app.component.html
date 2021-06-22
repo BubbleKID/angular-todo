@@ -312,7 +312,9 @@
     <div class="search">
       <input #newItem type="text" placeholder="Add Todo" (keyup.enter)="addItem(newItem.value); newItem.value = ''"/>
       <span (click)="addItem(newItem.value)"><fa-icon [icon]="faPlus"></fa-icon></span> 
+     
     </div>
+    <span class="error-message">{{errorMessage}}</span>
     <ul>
       <li *ngFor="let item of items; let i = index">
         <fa-icon class="check-icon" [icon]="faCheck" *ngIf="item.done" (click)="checkItem(i)"></fa-icon>
