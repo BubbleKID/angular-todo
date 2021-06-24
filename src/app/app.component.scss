@@ -15,7 +15,7 @@ h1 {
   margin: 10px;
 }
 
-input[type=text] {
+.new-item {
   width: 90%;
   padding: 10px;
   font-size: 16px;
@@ -53,18 +53,39 @@ ul {
 }
 
 ul li {
+  border-radius: 2px;
   height: 20px;
   background: #fff;
   margin: 5px;
   padding: 10px;
   border-right: 4px solid #FF6261;
   border-left: 4px solid #FF6261;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 1px 1px, rgb(0 0 0 / 6%) 0px 1px 1px 0px;
 }
 
-.trash{
-  padding: 4px;
+ul li:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+ul li input {
+  width: 70%;
+  border-radius: 2px;
+  padding: 3px;
+  border: none;
+  outline: none;
+  background-color: #f0f0f0;
+}
+
+
+.actions{
   float: right;
   cursor: pointer;
+}
+
+.actions fa-icon{
+  margin-right: 10px;
+  color: #606060;
 }
 
 .check-icon {

@@ -310,7 +310,7 @@
   <div class="todo-container">
     <h1>Todo List App</h1>
     <div class="search">
-      <input #newItem type="text" placeholder="Add Todo" (keyup.enter)="addItem(newItem.value); newItem.value = ''"/>
+      <input class="new-item" #newItem type="text" placeholder="Add Todo" (keyup.enter)="addItem(newItem.value); newItem.value = ''"/>
       <span (click)="addItem(newItem.value)"><fa-icon [icon]="faPlus"></fa-icon></span> 
      
     </div>
@@ -319,8 +319,12 @@
       <li *ngFor="let item of items; let i = index">
         <fa-icon class="check-icon" [icon]="faCheck" *ngIf="item.done" (click)="checkItem(i)"></fa-icon>
         <fa-icon class="uncheck-icon" [icon]="faCircle" *ngIf="!item.done" (click)="checkItem(i)"></fa-icon>
-        <span [ngClass]="{'line-through': item.done}">{{item.description}}</span> 
-        <fa-icon class="trash" (click)="removeItem(i)" [icon]="faTrashAlt"></fa-icon>
+        <span *ngIf="!item.edit" [ngClass]="{'line-through': item.done}">{{item.description}}</span>
+        <input type="text" *ngIf="item.edit" [(ngModel)]="item.description" (keyup.enter)="saveItem(i)" (blur)="saveItem(i)"/>
+        <div class="actions">
+          <fa-icon (click)="editItem(i)" [icon]="faPen"></fa-icon>
+          <fa-icon (click)="removeItem(i)" [icon]="faTrashAlt"></fa-icon>
+        </div>
       </li>
     </ul>
   </div>
