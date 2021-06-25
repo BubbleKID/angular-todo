@@ -9,14 +9,15 @@ services:
 addons:
     chrome: stable
 before_script:
-  - export DISPLAY=:99.0
+  - npm install -g @angular/cli
 script:
-  - npm test
-  - npm run build
+  - ng lint
+  - npm run test-headless
+  - ng build --prod --base-href https://github.com/BubbleKID/angular-todo
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
-  local_dir: build
+  local_dir: dist/angular-todo
   on:
     branch: master
