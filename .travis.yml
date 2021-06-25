@@ -11,13 +11,13 @@ addons:
 before_script:
   - npm install -g @angular/cli
 script:
-  - ng lint
   - npm run test-headless
-  - ng build --prod --base-href https://github.com/BubbleKID/angular-todo
+  - ng build --output-path dist/angular-todo --base-href https://bubblekid.github.io/angular-todo
 deploy:
-  provider: pages
+  provider: heroku
   skip_cleanup: true
-  github_token: $github_token
-  local_dir: dist/angular-todo
-  on:
-    branch: master
+  keep-history: true
+  api-key:
+    secure: $HEROKU_API_KEY
+  app: angular-todo-mark
+
